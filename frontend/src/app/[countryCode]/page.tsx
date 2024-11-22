@@ -24,7 +24,7 @@ export default function CountryPage() {
             try {
                 // Fetch country details from the API
                 const response = await fetch(
-                    `http://localhost:3030/country/info?code=${countryCode}`
+                    process.env.NEXT_PUBLIC_API_URL + `/country/info?code=${countryCode}`
                 );
 
                 setCountryDetails(!response.ok ? undefined : await response.json());

@@ -1,10 +1,9 @@
-// app/countries/page.tsx
 import Link from 'next/link';
 import { AvailableCountry } from "@/types/Country";
 
 export default async function CountriesPage() {
     // Fetching the list of countries
-    const res = await fetch('http://localhost:3030/country/available', {
+    const res = await fetch(process.env.NEXT_PUBLIC_API_URL + '/country/available', {
         next: { revalidate: 86400 },
     });
     const countries: AvailableCountry[] = await res.json();
