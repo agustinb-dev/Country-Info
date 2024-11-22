@@ -6,6 +6,7 @@ import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement
 import { CountryInfo } from "@/types/CountryInfo";
 import { PopulationInfo } from "@/types/PopulationInfo";
 import { Border } from "@/types/Border";
+import Image from 'next/image'
 import Link from "next/link";
 
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
@@ -57,7 +58,7 @@ export default function CountryPage() {
         return (
             <div className="flex justify-center items-center min-h-screen bg-gray-100">
                 <div className="text-center space-y-4">
-                    <img
+                    <Image
                         src="/not-found.svg"
                         alt="Not Found"
                         className="w-48 mx-auto"
@@ -136,7 +137,7 @@ export default function CountryPage() {
                 <div className="bg-white shadow-lg rounded-lg overflow-hidden">
                     <div className="p-6">
                         <h2 className="text-xl font-semibold text-gray-800">Flag</h2>
-                        <img src={countryDetails.flagUrl} alt={`${countryDetails.commonName} Flag`} className="w-full h-auto" />
+                        <Image src={countryDetails.flagUrl} alt={`${countryDetails.commonName} Flag`} width={800} height={500} className="w-full h-auto" />
                     </div>
                 </div>
             </div>
