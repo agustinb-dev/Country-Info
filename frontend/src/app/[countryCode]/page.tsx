@@ -62,6 +62,8 @@ export default function CountryPage() {
                         src="/not-found.svg"
                         alt="Not Found"
                         className="w-48 mx-auto"
+                        width={100}
+                        height={100}
                     />
                     <h2 className="text-2xl font-bold text-gray-800">
                         Oops! We couldn&#39;t find the country you’re looking for.
