@@ -26,7 +26,7 @@ export default async function CountriesPage() {
                             <p className="text-sm text-gray-500 mt-2">{country.countryCode}</p>
                         </div>
                         <div className="bg-gray-100 p-4">
-                            <button className="w-full py-2 bg-indigo-600 text-white font-semibold rounded-md shadow-md hover:bg-indigo-700 transition duration-300">
+                            <button className="w-full py-2 bg-teal-500 text-white font-semibold rounded-md shadow-md hover:bg-teal-600 transition duration-300">
                                 View Details
                             </button>
                         </div>
