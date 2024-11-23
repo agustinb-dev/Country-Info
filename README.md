@@ -1,4 +1,4 @@
-# Country Details App
+# Country Info App
 
 This is a full-stack application that displays details about various countries, including their population, borders, and flag. The project consists of a frontend built with Next.js and a backend in NestJS providing country data.
 
