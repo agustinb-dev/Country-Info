@@ -101,42 +101,54 @@ export default function CountryPage() {
 
     return (
         <div className="container mx-auto p-6 space-y-8">
-            <Link href="/" className="text-3xl absolute font-extrabold text-center text-white mb-8">
-                Back </Link>
-            <h1 className="text-5xl font-extrabold text-center text-white mb-8">
-                {countryDetails.commonName}
-            </h1>
+            {/* Back Button */}
+            <Link href="/" className="text-xl font-semibold text-teal-500 hover:underline mb-4 inline-block">
+                ← Back
+            </Link>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            {/* Country Name and Flag */}
+            <div className="flex flex-col sm:flex-row items-center gap-6">
+                <div className="w-32 h-20 sm:w-48 sm:h-32 relative">
+                    <Image
+                        src={countryDetails.flagUrl}
+                        alt={`${countryDetails.commonName} Flag`}
+                        fill
+                        className="object-cover rounded-lg shadow-md"
+                    />
+                </div>
+                <h1 className="text-5xl font-extrabold text-white text-center sm:text-left">
+                    {countryDetails.commonName}
+                </h1>
+            </div>
+
+            {/* Main Content */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {/* Population Chart */}
                 <div className="bg-white shadow-lg rounded-lg overflow-hidden">
                     <div className="p-6">
-                        <h2 className="text-xl font-semibold text-gray-800">Population</h2>
+                        <h2 className="text-xl font-semibold text-gray-800 mb-4">Population Over Time</h2>
                         <div className="h-72">
                             <Line data={chartData} />
                         </div>
                     </div>
                 </div>
 
-                {/* Border Countries */}
+                {/* Border Countries Widget */}
                 <div className="bg-white shadow-lg rounded-lg overflow-hidden">
                     <div className="p-6">
-                        <h2 className="text-xl font-semibold text-gray-800">Border Countries</h2>
-                        <ul>
+                        <h2 className="text-xl font-semibold text-gray-800 mb-4">Border Countries</h2>
+                        <ul className="space-y-2">
                             {countryDetails.borderCountries?.map((borderCountry: Border, index: number) => (
-                                <li key={borderCountry.countryCode || index} className="text-lg text-gray-700">
-                                    <Link href={`/${borderCountry.countryCode}`} className="text-teal-500 hover:underline">{borderCountry.commonName}</Link>
+                                <li key={borderCountry.countryCode || index}>
+                                    <Link
+                                        href={`/${borderCountry.countryCode}`}
+                                        className="text-teal-500 hover:underline text-lg"
+                                    >
+                                        {borderCountry.commonName}
+                                    </Link>
                                 </li>
                             ))}
                         </ul>
-                    </div>
-                </div>
-
-                {/* Flag */}
-                <div className="bg-white shadow-lg rounded-lg overflow-hidden">
-                    <div className="p-6">
-                        <h2 className="text-xl font-semibold text-gray-800">Flag</h2>
-                        <Image src={countryDetails.flagUrl} alt={`${countryDetails.commonName} Flag`} width={800} height={500} className="w-full h-auto" />
                     </div>
                 </div>
             </div>
