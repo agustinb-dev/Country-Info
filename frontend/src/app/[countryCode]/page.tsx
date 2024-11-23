@@ -82,9 +82,6 @@ export default function CountryPage() {
         );
     }
 
-    console.log(countryDetails);
-
-
     // Prepare population chart data
     const populationLabels = countryDetails.populationData?.map((data: PopulationInfo) => data.year);
     const populationValues = countryDetails.populationData?.map((data: PopulationInfo) => data.value);
@@ -128,7 +125,7 @@ export default function CountryPage() {
                         <ul>
                             {countryDetails.borderCountries?.map((borderCountry: Border, index: number) => (
                                 <li key={borderCountry.countryCode || index} className="text-lg text-gray-700">
-                                    {borderCountry.commonName}
+                                    <Link href={`/${borderCountry.countryCode}`} className="text-teal-500 hover:underline">{borderCountry.commonName}</Link>
                                 </li>
                             ))}
                         </ul>
